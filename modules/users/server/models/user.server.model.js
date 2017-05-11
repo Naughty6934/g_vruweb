@@ -28,6 +28,12 @@ var validateLocalStrategyEmail = function (email) {
  * User Schema
  */
 var UserSchema = new Schema({
+  id: {
+    type: String,
+    trim: true,
+    default: '',
+    validate: [validateLocalStrategyProperty, 'Please fill in your id']
+  },
   firstName: {
     type: String,
     trim: true,
@@ -79,7 +85,7 @@ var UserSchema = new Schema({
   roles: {
     type: [{
       type: String,
-      enum: ['user', 'admin']
+      enum: ['user', 'admin','professor','authorities']
     }],
     default: ['user'],
     required: 'Please provide at least one role'
