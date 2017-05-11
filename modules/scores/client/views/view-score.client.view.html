@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.score.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.score.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="scores.edit({ scoreId: vm.score._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.score.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.score.user"
+            ng-bind="vm.score.user.displayName"></span>
+      <span ng-if="!vm.score.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.score.content"></p>
+</section>
