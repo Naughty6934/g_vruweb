@@ -10,13 +10,13 @@ var mongoose = require('mongoose'),
  * Activity Schema
  */
 var ActivitySchema = new Schema({
-id: {
+  activity_id: {
     type: String,
     default: '',
-    required: 'Please fill Activity id',
+    required: 'Please fill Activity activity_id',
     trim: true
   },
-name: {
+  name: {
     type: String,
     default: '',
     required: 'Please fill Activity name',
@@ -32,8 +32,8 @@ name: {
     default: ['user'],
     required: 'Please provide at least one type'
   },
-  
- 
+
+
   created: {
     type: Date,
     default: Date.now

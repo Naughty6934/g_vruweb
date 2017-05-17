@@ -4,10 +4,10 @@
     <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
         <div class="form-group" show-errors>
-          <label for="firstName">ID : </label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required>
-          <div ng-messages="userForm.firstName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">First name is required.</p>
+          <label for="user_id">ID : </label>
+          <input type="text" id="user_id" name="ID" class="form-control" ng-model="credentials.user_id" placeholder="ID_User" required>
+          <div ng-messages="userForm.user_id.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">ID is required.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
@@ -32,6 +32,13 @@
             <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
           </div>
         </div>
+         <div class="form-group">
+           <label for="status"> สถานะ :  </label>
+                  <input type="radio" ng-model="role" ng-checked="true" value="user">นักศึกษา
+                  <input type="radio" ng-model="role" value="admin">ผู้ดูแลระบบ
+                  <input type="radio" ng-model="role" value="professor">อาจารย์
+                  <input type="radio" ng-model="role" value="authorities">เจ้าหน้าที่
+                </div>
         <div class="form-group" show-errors>
           <label for="username">Username : </label>
           <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
@@ -53,6 +60,8 @@
           <label>Password Requirements</label>
           <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
         </div>
+
+       
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Sign up</button>
           &nbsp; or&nbsp;

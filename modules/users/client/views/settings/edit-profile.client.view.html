@@ -3,6 +3,13 @@
     <form name="userForm" ng-submit="updateUserProfile(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
         <div class="form-group" show-errors>
+          <label for="user_id">ID : </label>
+          <input type="text" id="user_id" name="ID" class="form-control" ng-model="user.user_id" placeholder="ID_User" required>
+          <div ng-messages="userForm.user_id.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">ID is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
           <label for="firstName">First Name</label>
           <input type="text" id="firstName" name="firstName" class="form-control" ng-model="user.firstName" placeholder="First Name" required>
           <div ng-messages="userForm.firstName.$error" role="alert">
