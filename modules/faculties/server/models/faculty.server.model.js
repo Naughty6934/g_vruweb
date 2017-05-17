@@ -12,16 +12,23 @@ var mongoose = require('mongoose'),
 var FacultySchema = new Schema({
   Fac_Id: {
     type: String,
-    default: '',
+     Major:[{
+       Mar_Id : {
+         type: String,
+         unique:'Cou_Id already exists'
+       },
+       Mar_Name : {
+         type: String,
+        required: 'Please fill in a Mar_Name'
+       }
+     }],
     unique: true,
-    required: 'Please fill Faculty Id',
-    
+    required: 'Please fill Faculty Id'
   },
   Fac_Name: {
     type: String,
     default: '',
-    required: 'Please fill Faculty name',
-   
+    required: 'Please fill Faculty name'
   },
   created: {
     type: Date,
