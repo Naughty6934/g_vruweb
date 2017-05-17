@@ -1,22 +1,83 @@
-<section>
+<section class="header-height">
   <div class="page-header">
-    <h1>Activities</h1>
+    <h1>รายการกิจกรรม</h1>
   </div>
-  <div class="list-group">
-    <a ng-repeat="activity in vm.activities"
-       ui-sref="activities.view({ activityId: activity._id })"
-       class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="activity.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="activity.user" ng-bind="activity.user.displayName"></span>
-        <span ng-if="!activity.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="activity.name"></h4>
-    </a>
+  <div class="row hidden-xs show-sm show-md show-lg">
+    <div class="col-md-8">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <input type="text" class="form-control" placeholder="ค้นหารายการ..." ng-model="topsearch" aria-describedby="sizing-addon3">
+      </div>
+    </div>
+    <div class="col-md-4 hidden-xs hidden-sm show-md show-lg">
+      <div class="pull-right">
+        <a class="btn buttonCreate" ui-sref="activities.create">
+          <i class="fa fa-file-o" aria-hidden="true"></i>
+          <span>สร้างกิจกรรม</span>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="alert alert-warning text-center" ng-if="vm.activities.$resolved && !vm.activities.length">
-    No Activities yet, why don't you <a ui-sref="activities.create">create one</a>?
+
+  <div class="row hidden-xs show-sm show-md show-lg">
+    <div class="col-md-12">
+      <div class="row form-group alert alert-info">
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <strong>ชื่อกิจกรรม</strong>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <strong>รายละเอียด</strong>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <strong>วันที่เริ่ม - สิ้นสุด</strong>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <strong>คณะ/หลักสูตร</strong>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <strong>จำนวน</strong>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <strong>สถานที่</strong>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <strong>แก้ไข</strong>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="row hidden-xs show-sm show-md show-lg" ng-repeat="activite in vm.activites | filter:topsearch">
+    <div class="col-md-12">
+      <div class="row form-group">
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <p class="list-group-item-heading dotpyForm" ng-bind="activite.name"></p>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <p class="list-group-item-heading dotpyForm" ng-bind="activite.description"></p>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <p class="list-group-item-heading">{{activite.startdate | date:'dd/MM/yyyy'}} - {{activite.enddate | date:'dd/MM/yyyy'}}</p>
+          <!--<span class="list-group-item-heading" ng-bind="activite.startdate | date:'dd/MM/yyyy' "></span> - <span class="list-group-item-heading" ng-bind="campaign.enddate | date:'dd/MM/yyyy'"></span>-->
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+          <p class="list-group-item-heading marright" ng-bind="activite.pointcount"></p>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <p class="list-group-item-heading" ng-bind="activite.usercount"></p>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <!--<p class="list-group-item-heading" ng-bind="activite.usercount"></p>-->
+          <p>{{activites.usercount - activites.listuseractivites.length}}</p>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <button type="button" class="btn btn-primary" ui-sref="activites.edit({ activiteId: activite._id })"><span class="glyphicon glyphicon-edit"></span></button>
+        </div>
+        <!--<div class="col-xs-2 col-sm-2 col-md-2" align="center">
+          <button type="button" class="btn btn-primary" ng-click="vm.update(activites)"><span class="glyphicon glyphicon-edit"></span></button>
+        </div>-->
+      </div>
+    </div>
+  </div>
+
+  
 </section>

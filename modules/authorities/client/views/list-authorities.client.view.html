@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Authorities</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="authority in vm.authorities"
+       ui-sref="authorities.view({ authorityId: authority._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="authority.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="authority.user" ng-bind="authority.user.displayName"></span>
+        <span ng-if="!authority.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="authority.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.authorities.$resolved && !vm.authorities.length">
+    No Authorities yet, why don't you <a ui-sref="authorities.create">create one</a>?
+  </div>
+</section>

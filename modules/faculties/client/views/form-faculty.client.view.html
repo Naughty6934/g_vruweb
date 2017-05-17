@@ -1,0 +1,30 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.faculty._id ? 'Edit Faculty' : 'New Faculty'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.facultyForm" class="form-horizontal" ng-submit="vm.save(vm.form.facultyForm.$valid)" novalidate>
+      <fieldset>
+
+
+        Fac_Id
+ <div class="form-group" show-errors>
+          <label class="control-label" for="Fac_Id">รหัสคณะ : </label>
+          <input name="Fac_Id" type="text" ng-model="vm.faculty.Fac_Id" id="Fac_Id" class="form-control" placeholder="รหัสคณะ" required>
+          
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Fac_Name">ชื่อคณะ : </label>
+          <input name="Fac_Name" type="text" ng-model="vm.faculty.Fac_Name" id="Fac_Name" class="form-control" placeholder="ชื่อคณะ" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.faculty._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

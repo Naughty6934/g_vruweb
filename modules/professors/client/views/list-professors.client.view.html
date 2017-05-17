@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Professors</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="professor in vm.professors"
+       ui-sref="professors.view({ professorId: professor._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="professor.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="professor.user" ng-bind="professor.user.displayName"></span>
+        <span ng-if="!professor.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="professor.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.professors.$resolved && !vm.professors.length">
+    No Professors yet, why don't you <a ui-sref="professors.create">create one</a>?
+  </div>
+</section>

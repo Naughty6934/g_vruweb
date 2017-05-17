@@ -6,12 +6,85 @@
     <form name="vm.form.activityForm" class="form-horizontal" ng-submit="vm.save(vm.form.activityForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.activity.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.activityForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Activity name is required.</p>
+          <label class="control-label" for="Act_Id">ลำดับกิจกรรม : </label>
+          <input name="name" type="text" ng-model="vm.activity.Act_Id" id="Act_Id" class="form-control" placeholder="ลำดับกิจกรรม" required>
+          <div ng-messages="vm.form.activityForm.Act_Id.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">กรุณาระบุรหัสกิจกรรม.</p>
           </div>
         </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">ชื่อกิจกรรม : </label>
+          <input name="name" type="text" ng-model="vm.activity.Act_name" id="name" class="form-control" placeholder="ชื่อกิจกรรม" required>
+          <div ng-messages="vm.form.activityForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">กรุณาระบุชื่อกิจกรรม.</p>
+          </div>
+        </div>
+<div class="form-group" show-errors>
+          <label class="control-label" for="Act_Type">ด้านกิจกรรม :
+            <select name="ด้านกิจกรรม">
+  <option value="คุณธรรมจริยธรรม">ด้านคุณธรรม จริยธรรม</option>
+  <option value="ความรู้">ด้านความรู้</option>
+  <option value="ทักษะทางปัญญา">ด้านทักษะทางปัญญา</option>
+  <option value="ทักษะวิเคราะห์เชิงตัวเลข การสื่อสารและการใช้เทคโนโลยีสารสนเทศ">ด้านทักษะวิเคราะห์เชิงตัวเลข การสื่อสารและการใช้เทคโนโลยีสารสนเทศ</option>
+</select>
+             </label>
+<!--
+          <input name="name" type="text" ng-model="vm.activity.Act_Type" id="Act_Type" class="form-control" placeholder="ด้านกิจกรรม" required>
+          <div ng-messages="vm.form.activityForm.Act_Type.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">กรุณากรอกชื่อกิจกรรม.</p>
+          </div>-->
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Act_Objective">วัตถุประสงค์ : </label>
+          <input name="Act_Objective" type="text" ng-model="vm.activity.Act_Objective" id="Act_Objective" class="form-control" placeholder="วัตถุประสงค์" required>
+          <div ng-messages="vm.form.activityForm.Act_Objective.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">กรุณากรอกชื่อกิจกรรม.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Act_DateStart">วัน/เวลาเริ่มกิจกรรม : </label>
+          <input name="Act_DateStart" type="Date" ng-model="vm.activity.Act_DateStart" id="Act_DateStart" class="form-control" placeholder="วัน/เวลาที่เริ่ม" required>
+          <div ng-messages="vm.form.activityForm.Act_DateStart.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">กรุณาระบุวัน/เดือน/ปีที่เริ่มกิจกรรม.</p>
+          </div>
+        </diV>
+        <div class="form-group" >
+          <label class="control-label" for="Act_DateEnd">วัน/เวลาที่สิ้นสุด : </label>
+          <input name="Act_DateEnd" type="Date" ng-model="vm.activity.Act_DateEnd" id="Act_DateEnd" class="form-control" placeholder="วัน/เวลาที่สิ้นสุด" >
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Act_Location">สถานที่ : </label>
+          <input name="Act_Location" type="Text" ng-model="vm.activity.Act_Location" id="Act_Location" class="form-control" placeholder="สถานที่จัดกิจกรรม" required>
+          <div ng-messages="vm.form.activityForm.Act_Location.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">กรุณาระบุสถานที่จัดกิจกรรม.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Act_Condition">กลุ่มเป้าหมาย : </label>
+          <input name="Act_Condition" type="Text" ng-model="vm.activity.Act_Condition" id="Act_Condition" class="form-control" placeholder="กลุ่มเป้าหมาย" required>
+          <div ng-messages="vm.form.activityForm.Act_Condition.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">กรุณาระบุกลุ่มเป้าหมายที่ต้องการให้ร่วมกิจกรรม.</p>
+          </div>
+        </div>
+ <div class="form-group" show-errors>
+          <label class="control-label" for="Act_Unit">จำนวน : </label>
+          <input name="Act_Unit" type="Text" ng-model="vm.activity.Act_Unit" id="Act_Unit" class="form-control" placeholder="จำนวน(คน)" >
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Act_file_Program">อัพโหลดกำหนดการ : </label>
+          <input name="Act_file_Program" type="File" ng-model="vm.activity.Act_file_Program" id="Act_file_Program" class="form-control" placeholder="อัพโหลดใบกำหนดการ" >
+        </div>
+         <div class="form-group" show-errors>
+          <label class="control-label" for="Act_file_Signature">อัพโหลดกำหนดการ : </label>
+          <input name="Act_file_Signature" type="File" ng-model="vm.activity.Act_file_Signature" id="Act_file_Signature" class="form-control" placeholder="อัพโหลดใบรายชื่อ" >
+        </div>
+
+
+
+
+
+
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.activity._id ? 'Update' : 'Create'}}</button>
         </div>

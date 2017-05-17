@@ -30,6 +30,7 @@ var validateLocalStrategyEmail = function (email) {
 var UserSchema = new Schema({
   user_id: {
     type: String,
+    unique: true,
     trim: true,
     default: '',
     validate: [validateLocalStrategyProperty, 'Please fill in your id']
