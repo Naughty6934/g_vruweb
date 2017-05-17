@@ -10,7 +10,14 @@ var mongoose = require('mongoose'),
  * Professor Schema
  */
 var ProfessorSchema = new Schema({
-  name: {
+  Pro_Id: {
+    type: String,
+    default: '',
+    unique:'Pro_Id already exists',
+    required: 'Please fill Professor Id',
+   
+  },
+  Pro_Name: {
     type: String,
     default: '',
     required: 'Please fill Professor name',

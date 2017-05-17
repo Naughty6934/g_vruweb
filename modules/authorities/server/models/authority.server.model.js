@@ -10,7 +10,16 @@ var mongoose = require('mongoose'),
  * Authority Schema
  */
 var AuthoritySchema = new Schema({
-  name: {
+
+
+    Aut_Id: {
+    type: String,
+    default: '',
+    unique:'Aut_Id already exists',
+    required: 'Please fill Authority Id',
+   
+  },
+  Aut_Name: {
     type: String,
     default: '',
     required: 'Please fill Authority name',

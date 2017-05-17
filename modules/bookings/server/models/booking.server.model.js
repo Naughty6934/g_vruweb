@@ -16,6 +16,7 @@ var BookingSchema = new Schema({
     required: 'Please fill Booking name',
     trim: true
   },
+  
   created: {
     type: Date,
     default: Date.now
